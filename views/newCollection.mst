@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+
+    {{>head}} 
+
+
+<body>
+    {{>header}}
+     <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+     <div class="jumbotron jumbotron-fluid">
+            <h1 class="display-3 text-center" style="color:#ffffff">Сторінка додавання нової колекції книг</h1>
+        </div>
+    <hr>
+    <form action="/addcollection"  method="POST"   enctype= "multipart/form-data">
+      <div class="form">
+        <div class="form-group">
+          <label for="name" required>Назва колекції</label>
+          <input type="text" class="form-control" name="name_field" id="name" placeholder="Введіть назву книги" required="true">
+        </div>
+        
+        <div class="form-group">
+          <label for="desctiption">Про колекцію:</label>
+          <textarea name ="description_field" class="form-control" rows="5" id="desctiption"></textarea>
+        </div>
+        <div class="form-group">
+        <div>
+             <input type="checkbox" id="privacy" name="privacy_field">
+             <label for="privacy">Приватна</label>
+        </div>
+        </div>
+        <div class="custom-file">
+          <input type="file" name="ava_field" class="custom-file-input" id="customFile">
+          <label class="custom-file-label" for="customFile">Виберіть файл</label>
+        </div>
+        <hr>
+   
+    <input type="submit" class="btn btn-lg btn-block btn-outline-secondary mb-2" value="Створити колекцію">
+     </form>
+  </div>
+{{>footer}}
+
+</body>
+</html>

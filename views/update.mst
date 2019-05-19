@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+
+    {{>head}} 
+
+
+<body>
+    {{>header}}
+     <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+    <h1 class="display-3 text-center">Сторінка оновлення книги {{name}}</h1>
+    <hr>
+    <form action="/updateBook"  method="POST"   enctype= "multipart/form-data">
+      <div class="form">
+        <div class="form-group">
+          <label for="name">Назва книги</label>
+          <input value="{{name}}"type="text" class="form-control" name="name_field" placeholder="Введіть назву книги">
+        </div>
+        <div class="form-group">
+          <label for="author_field">Автор книги</label>
+          <input value="{{author}}" type="text" class="form-control" name="author_field" placeholder="Введіть автора книги">
+        </div>
+        <div class="form-group">
+          <label for="inputGroupSelect02">Жанр книги</label>
+          <select class="custom-select" id="inputGroupSelect02" name="genre_field">
+                <option selected>{{genre}}</option>
+                {{#genres.length}}
+                {{#genres}}
+                <option value="{{name}}">{{name}}</option>
+                {{/genres}}
+                {{/genres.length}}
+
+              </select>
+        </div>
+        <div class="form-group">
+          <label for="publisher_field">Видавництво книги</label>
+          <input value="{{publisher}}" type="text" class="form-control" name="publisher_field" placeholder="Введіть видавництво книги">
+        </div>
+        <div class="form-group">
+          <label for="year_field">Рік випуску</label>
+          <input value="{{year}}" class="form-control"name="year_field" type="number" value="0">
+        </div>
+        <div class="form-group">
+          <label for="rating_field">Рейтинг книги</label>
+          <input value="{{rating}}" class="form-control" name="rating_field" type="number" step="0.1" min="0" max="10" value="0">
+        </div>
+        <div class="form-group">
+          <label for="desctiption">Опис книги:</label>
+          <textarea  name ="description_field" class="form-control" rows="5" id="desctiption">{{description}}</textarea>
+        </div>
+        <div class="custom-file">
+          <input type="file" name="ava_field" class="custom-file-input" id="customFile">
+          <label class="custom-file-label" for="customFile">Choose file</label>
+        </div>
+        <hr>
+            <input name="id" type="hidden" value="{{id}}">
+             <input name="ava" type="hidden" value="{{image}}">
+            <input type="submit"  class="btn btn-block btn-outline-warning waves-effect" value="Редагувати дану книгу">
+       
+    </form>
+   
+  </div>
+{{>footer}}
+
+</body>
+</html>

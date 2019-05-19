@@ -1,0 +1,97 @@
+<div class="header">
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="/"><img src="../images/design/if_resolutions-05_897243.png"></a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Головна <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/books">Книги</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users">Користувачі</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/collections">Колекції книг</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">Про бібліотеку</a>
+        </li>
+
+      </ul>
+      {{#user}}
+      <form class="form-inline my-2 my-lg-0" action="/books" method="GET">
+        <input name="search" class="form-control mr-sm-2" type="search" placeholder="Введіть назву книги або автора"
+          aria-label="Search">
+        <input class="btn btn-outline-secondary waves-effect" type="submit" value="Пошук">
+      </form>
+      {{/user}}
+
+      <ul class="navbar-nav">
+        {{#user}}
+        <li class="nav-item">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-outline-secondary waves-effect"><i class="fa fa-user mr-1r"></i></button>
+            <button type="button" class="btn btn-outline-secondary waves-effect dropdown-toggle px-3" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/profile">Профіль</a>
+              <div class="dropdown-divider"></div>
+              <form id="logout" method="POST" , action="/logout">
+                <a class="nav-link" href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;">Вихід</a>
+              </form>
+
+            </div>
+          </div>
+
+        </li>
+        {{/user}}
+        {{^user}}
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">Вхід <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/reg">Реєстрація</a>
+        </li>
+        {{/user}}
+      </ul>
+    </div>
+  </nav>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Вікно входу</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/login" method="POST">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Введіть логін</label>
+              <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Введіть логін">
+              <small id="emailHelp" name="username" class="form-text text-muted">Введіть ім'я користувача, яке вводили
+                при реєстрації.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Пароль</label>
+              <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Пароль">
+            </div>
+            <button type="submit" class="btn-outline-secondary waves-effect btn-block">Вхід</button>
+        </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

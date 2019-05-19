@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>head}}
+
+<body>
+  {{>header}}
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4" style="color:#ffffff">E-library</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <p iclass="lead" style="color:#ffffff">Зручна заміна класичної бібліотеки.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+    {{#err}}
+    <p>{{err}}</p>
+    {{/err}}
+    {{^err}}
+    <p> Ой, виникла якась помилка</p>
+    {{/err}}
+    </p>
+  </div>
+</body>
+
+</html>

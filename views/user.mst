@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>head}}
+
+<body>
+  {{>header}}
+  {{#user}}
+  <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+    <h1 class="display-4 text-center">Профіль користувача {{login}} </h1>
+    <hr>
+    <div class="text-center">
+      <img src="{{avaUrl}}" class="rounded-circle w-25 p-3" alt="ava">
+      <p class="text-muted">({{login}}) {{registerAt}} </p>
+    </div>
+    <hr>
+    <p class="text-muted">Персональна інформація:</p>
+    <div class="text-center">
+      <p>{{fullname}}</p>
+    </div>
+    <hr>
+    {{/user}}
+
+    <div class="row">
+      <div class="col-10">
+        <p> Роль користувача: {{role}}</p>
+      </div>
+
+      <div class="col-2">
+        {{#showCh}}
+        <form action="/chnrole" method="POST">
+          {{#user}}
+          <input name="id" type="hidden" value="{{id}}">
+          {{/user}}
+          <input type="submit" class="btn btn-outline-secondary waves-effect" value="Змінити роль">
+        </form>
+        {{/showCh}}
+        {{^showCh}}
+        <form action="/profile">
+
+          <input type="submit" class="btn btn-outline-secondary waves-effect" value="Перейти на особистий профіль" >
+        </form>
+        {{/showCh}}
+
+      </div>
+
+      {{>footer}}
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+{{>head}}
+
+<body>
+  {{>header}}
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4" style="color:#ffffff">E-library</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p iclass="lead" style="color:#ffffff">Зручна заміна класичної бібліотеки.</p>
+          </div>
+          <div class="col-md-6">
+            <a class="btn btn-outline-secondary waves-effect btn-lg" href="#">Про проект</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Перегляньте наші книги</h5>
+            <p class="card-text">Багато цікавих та популярних книг!
+            </p>
+            <p></p>
+            <a href="/books" class="btn btn-outline-secondary waves-effect">Переглянути</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Публічні колекції</h5>
+            <p class="card-text"> Колекції, якими поділилися користувачі.</p>
+            <a href="/allCollections" class="btn btn-outline-secondary waves-effect">Переглянути</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Subscribe to pewdiepie</h5>
+            <p class="card-text">Dont be like bitch lasagna
+            </p>
+            <p></p>
+            <a href="https://www.youtube.com/user/PewDiePie" target="blank" class="btn btn-outline-secondary waves-effect">Переглянути</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    {{>footer}}
+</body>
+
+</html>

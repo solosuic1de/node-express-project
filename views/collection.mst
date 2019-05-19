@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>head}}
+
+<body>
+  {{>header}}
+  <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="row">
+      <div class="col-8">
+        {{#collections}}
+        <h1 class="display-4">{{name}}</h1>
+        <hr>
+        <p>{{description}}
+        </p>
+        </form>
+      </div>
+      <div class="col-4">
+        <img src="{{avaUrl}}" alt="pic" class="img-thumbnail">
+      </div>
+      <br>
+    </div>
+    {{/collections}}
+    {{#collections}}
+    <br>
+    <div class="row">
+      <div class="col-md-8">
+        {{#owner}}
+           {{#books.length}}
+            {{#books}}
+        <form action="/deletefromcoll" , method="POST">
+          <input name="id" type="hidden" value="{{id}}">
+
+          <select class="custom-select" id="inputGroupSelect02" name="coll">
+            <option value="" selected>Список всіх книг</option>
+         
+            <option value="{{id}}">{{name}}</option>
+            
+          </select>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group-append">
+          <button type="button" class="btn btn-md btn-outline-primary waves-effect  btn-block" data-toggle="modal"
+            data-target="#actionModal">
+            Дії над вибраною книгою
+          </button>
+        </div>
+        <div class="modal fade" id="actionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+              <p>Що ви бажаєте зробити?<p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-footer">
+                <a href="/books/{{id}}" class="btn btn-outline-success waves-effect">Перейти на сторінку книги</a>
+                <button type="input" class="btn btn-outline-warning waves-effect">Видалити вибрану книгу</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/books}}
+            {{/books.length}}
+        </form>
+        <br>
+</div>
+        {{/owner}}
+      </div>
+      <br>
+      {{/collections}}
+      {{#collections}}
+      {{#owner}}
+      <form action="/deleteColl" method="POST"><input name="id" type="hidden" value="{{id}}">
+        <button type="button" class="btn btn-outline-danger waves-effect btn-lg btn-block" data-toggle="modal"
+          data-target="#deletemodal">Видалити
+          цю колекцію</button>
+        <div class="modal fade-top" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ви дійсно хочете видалити цю колекцію?</h5>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary  waves-effect" data-dismiss="modal">Відмінити</button>
+                <input type="submit" class="btn btn-outline-danger waves-effect" value="Підтвердити">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    {{/owner}}
+    {{/collections}}
+  </div>
+  {{>footer}}
+</body>
+
+</html>

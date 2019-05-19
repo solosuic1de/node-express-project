@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+
+    {{>head}} 
+
+
+<body>
+    {{>header}}
+     <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4" style="color:#ffffff">Зареєстровані користувачі</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p iclass="lead" style="color:#ffffff">Натисніть на елемент таблиці, для переходу на сторінку з інформацією про користувача</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div> 
+
+{{#users.length}}
+  <table class="table table-hover shadow-lg p-3 mb-5 bg-white rounded">
+    <thead>
+      <tr>
+     
+        <th scope="col">Логін</th>
+        <th scope="col">Повне ім'я</th>
+        <th scope="col">Дата реєстрації</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {{#users}}
+      <tr>
+     
+        <td><a href="/users/{{id}}">{{login}}</a></td>
+        <td><a href="/users/{{id}}">{{fullname}}</a>
+        </td> <td><a href="/users/{{id}}">{{registeredAt}}</a>
+        </td> 
+        </tr> 
+     {{/users}}
+
+    </tbody>
+  </table>
+    {{/users.length}}
+      
+{{>footer}}
+
+</body>
+</html>

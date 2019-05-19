@@ -1,0 +1,32 @@
+{
+    "nextId": 3,
+    "items": [
+        {
+            "id": 0,
+            "login": "solosuicide",
+            "role": 1,
+            "fullname": "Dima Krutii",
+            "registeredAt": "2018-10-14T10:05:19Z",
+            "avaUrl": "/images/users/solos.jpg",
+            "isDisabled": false
+        },
+        {
+            "id": 1,
+            "login": "lelikovkostia",
+            "role": 0,
+            "fullname": "Kostia Lelikov",
+            "registeredAt": "2018-10-14T10:25:19Z",
+            "avaUrl": "/images/users/kost.jpg",
+            "isDisabled": false
+        },
+        {
+            "id": 2,
+            "login": "manohkpi",
+            "role": 1,
+            "fullname": "Andrei Manohin",
+            "registeredAt": "2016-01-18T14:09:39Z",
+            "avaUrl": "/images/users/manoh.jpg",
+            "isDisabled": true
+        }
+    ]
+}

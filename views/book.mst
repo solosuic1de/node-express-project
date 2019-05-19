@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+
+{{>head}}
+
+
+<body>
+  {{>header}}
+
+  <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="row">
+      <div class="col-8">
+        <h1 class="display-4">
+          {{name}}
+
+        </h1>
+        <ul class="list-unstyled">
+          <li><img src="../images/design/star-icon.png" alt="" class="img-rounded center-block"><span id="rating" class="badge badge-warning">
+              {{rating}}/10</span></li>
+          <li><span class="list">Автор:</span> {{author}}
+
+          </li>
+          <li><span class="list">Жанр:</span> {{genre}}
+
+          </li>
+          <li><span class="list">Рік:</span>{{year}}
+
+          </li>
+          <li><span class="list">Видавництво:</span>{{publisher}}
+
+          </li>
+        </ul>
+        <hr>
+        <p> {{description}}
+        
+        </p>
+        {{#role}}
+        <form action="/deteBook" method="POST"><input name="id" type="hidden" value="{{id}}">
+          <button type="button" class="btn btn-outline-danger waves-effect btn-lg btn-block" data-toggle="modal"
+            data-target="#basicExampleModal">Видалити цю книгу</button>
+          <div class="modal fade-top" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Ви дійсно хочете видалити цю книгу?</h5>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary  waves-effect" data-dismiss="modal">Відмінити</button>
+                  <input type="submit" class="btn btn-outline-danger waves-effect" value="Підтвердити">
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        </div>
+        <div class="col-4"><img src="{{image}}" alt="pic" class="img-thumbnail"></div>
+      
+      </div><br>
+      
+      <div class="row">
+        <div class="col-8">
+          <form action="/updateBook" method="GET">
+            <input name="id" type="hidden" value="{{id}}">
+            <input type="submit" class="btn btn-block btn-outline-warning waves-effect" value="Редагувати дану книгу">
+          </form>
+          </form>
+          {{/role}}
+        </div>
+        <br>
+      </div>
+      <br>
+      {{#book}}
+      <div class="row">
+        <div class="col-6">
+          <form action="/addBookInCollection" method="POST" enctype="multipart/form-data">
+            <div class="input-group mb-3">
+              {{#BooksCollections.length}}
+                {{#BooksCollections}}
+              <input name="id" type="hidden" value="{{id}}">
+              <select class="custom-select" id="inputGroupSelect02" name="coll">
+                <option selected>Виберіть колекцію...</option>
+              
+                <option value="{{id}}">{{name}}</option>
+                
+
+              </select>
+              
+            </div>
+        </div>
+        <div class="col-2">
+          <div class="input-group-append"><input type="submit" class="btn btn-md btn-outline-primary waves-effect  btn-block"
+              value="Додати книгу"></div>
+              {{/BooksCollections}}
+                {{/BooksCollections.length}}
+              </form>
+        </div>
+      </div>
+      
+      {{/book}}
+    </div>
+  </div>{{footer}}
+
+</body>
+
+</html>
